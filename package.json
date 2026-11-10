@@ -1,0 +1,63 @@
+{
+  "name": "dsh-balance-reminder",
+  "version": "0.1.0",
+  "description": "Always-visible DeepSeek balance bar plus low-balance reminder for the DSH Web client.",
+  "author": "AdyVany",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdyVany/dsh-balance-reminder.git"
+  },
+  "homepage": "https://github.com/AdyVany/dsh-balance-reminder#readme",
+  "bugs": {
+    "url": "https://github.com/AdyVany/dsh-balance-reminder/issues"
+  },
+  "type": "module",
+  "main": "index.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./icon": "./icon.svg",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json",
+    "market",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-api-remote-access",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ]
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.0 <0.3.0"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "balance",
+    "reminder",
+    "wallet",
+    "deepseek"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
