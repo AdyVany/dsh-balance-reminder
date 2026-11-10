@@ -1,0 +1,33 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Balance Reminder",
+    "zh": "余额提醒"
+  },
+  "plugins": [
+    {
+      "name": "dsh-balance-reminder",
+      "title": {
+        "en": "DSH Balance Reminder",
+        "zh": "DSH 余额提醒"
+      },
+      "description": {
+        "en": "Always-visible DeepSeek balance bar with low-balance reminders.",
+        "zh": "常驻显示 DeepSeek 余额，并在余额偏低时提醒。"
+      },
+      "icon": "icons/balance.svg",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794207746,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.0 <0.3.0"
+          }
+        }
+      ]
+    }
+  ]
+}
