@@ -19,9 +19,11 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1794207746,
+          "publishTimestamp": 1794274763,
           "source": {
-            "type": "npm"
+            "type": "git",
+            "url": "https://github.com/AdyVany/dsh-balance-reminder",
+            "commit": "5bc474cedd5b28604c4dba7ea3b18d7a6672d234"
           },
           "engines": {
             "dsh": ">=0.2.0 <0.3.0"
