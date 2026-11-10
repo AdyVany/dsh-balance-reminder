@@ -13,18 +13,27 @@
 
 ## 安装
 
-推荐在 DSH 插件页安装（安装后自动启用），或让 agent 用 `plugin_manager` 安装：
+### 方式一：通过插件索引（推荐）
+
+1. 在 DSH 打开 **插件** → **实验性插件** → 打开「自定义插件索引」
+2. 点 **发现** → **添加索引源**，填入：
+
+   ```
+   https://cdn.jsdelivr.net/gh/AdyVany/dsh-balance-reminder@main/market/index.json
+   ```
+
+3. 搜索「余额」或「Balance」→ 安装
+
+### 方式二：直接安装 tarball（访问 GitHub 不稳定时用）
+
+```
+dsh plugin add "https://cdn.jsdelivr.net/gh/AdyVany/dsh-balance-reminder@main/dist/dsh-balance-reminder-0.1.0.tgz"
+```
+
+### 方式三：本地开发
 
 ```
 plugin_manager install_bundle target="<本目录绝对路径>"
-```
-
-安装后刷新 Web 页面即可看到底部余额条。若没有出现，检查 `设置 → 插件` 中本插件是否已启用。
-
-手动卸载：
-
-```
-plugin_manager remove_bundle target="dsh-balance-reminder"
 ```
 
 ## 数据来源与隐私
@@ -33,20 +42,15 @@ plugin_manager remove_bundle target="dsh-balance-reminder"
 - 插件不保存、不打印 access token，也不把余额发送到 DeepSeek 之外的任何地方。
 - 只有界面打开时才会每分钟请求一次余额；页面隐藏时暂停自动刷新，切回页面时立即刷新。
 
-## 文件
-
-| 文件 | 作用 |
-|---|---|
-| `index.js` | Host 半边：无状态，只让 bundle 进入 Loader，使 Client bundle 被 `dsh-client-modules` 提供。 |
-| `client.js` | Client 半边：注册 `shell.bottom` 余额条与 `shell.overlay` 提醒卡。 |
-| `cordis.patch.yml` | Bundle patch：插入 `balance-reminder` 插件行。 |
-
 ## 调整阈值
 
 阈值目前是 `client.js` 中的常量：`WARN_BELOW = 20`、`CRITICAL_BELOW = 5`、`REFRESH_MS = 60 * 1000`。改完后保存文件，页面会通过 HMR 重新加载该插件（首次安装后如未生效，刷新页面即可）。
 
-## 说明
+## 兼容性
 
-- 插件以 `link:` 方式安装在当前 desktop profile 中，源码就是这个工作区里的 `dsh-balance-reminder` 目录。移动或删除该目录会让插件失效；移动后重新执行一次 `plugin_manager install_bundle` 即可。
-- 安装时插件会自动启用，并写入 `~/.dsh/profiles/desktop/package.json` 的 `dsh.profile.bundles` 列表。
-- 当前 profile 已确认加载：插件行 `include:balance-reminder` 状态为 `active`，浏览器启动图中包含 `dsh-balance-reminder` 的客户端 bundle。
+- 需要 DSH `>=0.2.0 <0.3.0`
+- 依赖 0.2.x 的 Web Client 插槽（`shell.bottom`、`shell.overlay`）和账号远程接口
+
+## 许可
+
+MIT
