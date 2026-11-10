@@ -1,0 +1,3 @@
+- insert:
+    - id: balance-reminder
+      name: 'dsh-balance-reminder'
