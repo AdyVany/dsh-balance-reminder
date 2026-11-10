@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "DSH 余额提醒",
+    "description": "常驻显示 DeepSeek 余额，并在余额偏低时提醒。"
+  }
+}
