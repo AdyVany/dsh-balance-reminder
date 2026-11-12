@@ -3,6 +3,8 @@
 在 DeepSeek Harness Web 界面底部常驻显示 DeepSeek 平台钱包余额，并在余额偏低时弹出提醒。  
 余额通过 DSH 已登录的 DeepSeek 账号读取（`account.getBalance`），**不需要另外配置 API Key**。
 
+![DSH 余额提醒](screenshot.png)
+
 ## 功能
 
 - **常驻余额条**：界面最底部一行，显示充值余额 + 赠金合计，每分钟自动刷新，也可点「刷新」立即读取。
